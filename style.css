@@ -12,7 +12,7 @@ body, html {
 
 .coming-soon {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-              url('https://source.unsplash.com/1600x900/?future,technology') no-repeat center center;
+              url('logo.png') no-repeat center center;
   background-size: cover;
   height: 100vh;
   color: white;
