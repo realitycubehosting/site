@@ -52,3 +52,11 @@ button {
 button:hover {
   background-color: #009acd;
 }
+
+
+#countdown {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
