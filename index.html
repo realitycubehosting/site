@@ -1,61 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="logo.png" type="image/png" />
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coming Soon</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pre-Order Now – Reality Cube</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: /logo.png
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+    }
+
+    .plans {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .plan {
+      background-color: #292929;
+      border: 2px solid #444;
+      border-radius: 12px;
+      padding: 2rem;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .plan:hover {
+      transform: translateY(-5px);
+    }
+
+    .plan h2 {
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      color: #00ffe7;
+    }
+
+    .plan p {
+      margin: 1rem 0;
+    }
+
+    .order-btn {
+      background-color: #00ffe7;
+      color: #000;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .order-btn:hover {
+      background-color: #00bfa5;
+    }
+  </style>
 </head>
 <body>
-  <div class="coming-soon">
 
-<div id="countdown">
-  <span id="days">--</span>d :
-  <span id="hours">--</span>h :
-  <span id="minutes">--</span>m :
-  <span id="seconds">--</span>s
-</div>
-    <div class="content">
-
-
-      <h1>Coming Soon</h1>
-      <p>We're working hard to bring you something amazing. Stay tuned!</p>
-      <p>Founder edition plan coming soon. 3$/gb ram.</p>
-      <button onclick="contactUs()">Contact Us</button>
+  <h1>Pre-Order Now</h1>
+  <div class="plans">
+    <div class="plan">
+      <h2>Founder Edition</h2>
+      <p>Exclusive early access, lifetime updates, limited availability.</p>
+      <button class="order-btn" onclick="sendEmail('Founder Edition')">Order Now</button>
+    </div>
+    <div class="plan">
+      <h2>Pro Edition</h2>
+      <p>Full feature access, priority support, regular updates.</p>
+      <button class="order-btn" onclick="sendEmail('Pro Edition')">Order Now</button>
     </div>
   </div>
 
   <script>
-    function contactUs() {
-      window.location.href = "mailto:management@realitycube.tech";
+    function sendEmail(plan) {
+      const email = "preorder@realitycube.tech";
+      const subject = encodeURIComponent(`Pre-Order Request: ${plan}`);
+      const body = encodeURIComponent(`Hello,\n\nI would like to pre-order the ${plan} of Reality Cube.\n\nPlease let me know the next steps.\n\nThank you!`);
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     }
-  // Countdown Timer
-  const countdown = () => {
-    const endDate = new Date("June 18, 2025 00:00:00").getTime();
-    const now = new Date().getTime();
-    const timeLeft = endDate - now;
+  </script>
 
-    if (timeLeft < 0) {
-      document.getElementById("countdown").innerHTML = "It's here!";
-      return;
-    }
-
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
-  };
-
-  setInterval(countdown, 1000);
-  countdown(); // run once on load
-</script>
-
-    
 </body>
 </html>
